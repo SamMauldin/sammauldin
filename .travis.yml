@@ -5,8 +5,8 @@ services:
   - docker
 
 before_install:
-  - docker build -t Sxw1212/sammauldin .
-  - docker tag Sxw1212/sammauldin us.gcr.io/wombo-combo-95420/sammauldin
+  - docker build -t sxw1212/sammauldin .
+  - docker tag sxw1212/sammauldin us.gcr.io/wombo-combo-95420/sammauldin
 
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
