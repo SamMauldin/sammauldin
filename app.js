@@ -12,9 +12,9 @@ app.listen(PORT, function() {
 
 function handleError(err, req, res) {
   if (err.status == 404) {
-    res.status(404).send('404 not found');
+    res.status(404).send("404 not found");
   } else {
-    res.status(500).send('Error 500: ' + err.message);
+    res.status(500).send("Error 500: " + err.message);
   }
 }
 
