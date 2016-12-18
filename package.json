@@ -12,9 +12,9 @@
     "debug": "~0.7.4",
     "errorhandler": "~1.1.1",
     "express": "~4.13.4",
-    "express-prismic": "^1.1.1",
     "method-override": "~2.1.1",
     "morgan": "~1.0.0",
+    "prismic-nodejs": "^1.3.0",
     "pug": "^2.0.0-beta6",
     "request": "^2.76.0",
     "serve-favicon": "~2.3.0"
