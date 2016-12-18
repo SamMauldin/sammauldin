@@ -1,0 +1,46 @@
+extends layout.pug
+
+block head
+  title
+    !=pageContent.getText("home-page.title")
+
+block body
+  div(class="text-center")
+    span(class="header")
+      !=pageContent.getText("home-page.title")
+
+    br
+    br
+
+    span(class="text")
+      !=pageContent.getText("home-page.about-me")
+
+    br
+
+
+    span(class="text")
+      !=pageContent.getText("home-page.location")
+
+  div(class="container")
+
+    span(class="subheading")
+      !=pageContent.getText("home-page.contact-header")
+
+    ul
+      each item in pageContent.getGroup("home-page.contact").toArray()
+        li
+          a(href=item.getLink("contact-link").url(linkResolver))
+            != item.getText("contact-link-text")
+          !=  "&nbsp;" + item.getText("contact-text")
+
+    br
+
+    span(class="subheading")
+      !=pageContent.getText("home-page.project-header")
+
+    ul
+      each item in pageContent.getGroup("home-page.projects").toArray()
+        li
+          a(href=item.getLink("project-link").url(linkResolver))
+            != item.getText("project-name")
+          !=  " · " + item.getText("project-description")
