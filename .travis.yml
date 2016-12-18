@@ -10,12 +10,9 @@ before_install:
 
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker login -e 1234@5678.com -u _json_key -p "$DOCKER_PASSWORD" https://us.gcr.io
+    docker login -e 1234@5678.com -u _json_key -p "$DOCKER_PASSWORD" https://us.gcr.io;
     docker push us.gcr.io/wombo-combo-95420/sammauldin;
     fi
-
-node_js:
-- '6'
 
 notifications:
   email: false
