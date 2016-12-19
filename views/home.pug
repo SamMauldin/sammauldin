@@ -41,6 +41,19 @@ block body
     ul
       each item in pageContent.getGroup("home-page.projects").toArray()
         li
-          a(href=item.getLink("project-link").url(linkResolver))
+          if item.getLink("project-link")
+            a(href=item.getLink("project-link").url(linkResolver))
+              != item.getText("project-name")
+          else
             != item.getText("project-name")
           !=  " · " + item.getText("project-description")
+
+    br
+
+    span(class="subheading")
+      !=pageContent.getText("home-page.skill-title")
+
+    ul(class="horizontal")
+      each item in pageContent.getGroup("home-page.skills").toArray()
+        li
+          != item.getText("skill")

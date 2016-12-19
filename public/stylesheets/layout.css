@@ -32,3 +32,19 @@ ul {
   list-style-type: none;
   -webkit-padding-start: 0em;
 }
+
+ul.horizontal {
+  overflow:hidden;
+}
+
+ul.horizontal>li {
+  float:left;
+  margin-right:10px;
+}
+
+ul.horizontal > li:last-child {
+  margin-right:0px;
+}
+
+:link { color: #0000EE; }
+:visited { color: #0000EE; }
