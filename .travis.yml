@@ -4,12 +4,10 @@ sudo: required
 services:
   - docker
 
-before_install:
-  - docker build -t sxw1212/sammauldin .
-  - docker tag sxw1212/sammauldin us.gcr.io/wombo-combo-95420/sammauldin
-
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker build -t sxw1212/sammauldin .;
+    docker tag sxw1212/sammauldin us.gcr.io/wombo-combo-95420/sammauldin;
     docker login -e 1234@5678.com -u _json_key -p "$DOCKER_PASSWORD" https://us.gcr.io;
     docker push us.gcr.io/wombo-combo-95420/sammauldin;
     fi

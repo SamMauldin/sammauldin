@@ -40,6 +40,24 @@ app.get("/", function(req, res) {
   });
 });
 
+app.get("/page/:uid", function(req, res) {
+  const uid = req.params.uid;
+  api(req, res).then(p => {
+    return p.getByUID("page", uid);
+  }).then(pageContent => {
+    if (pageContent) {
+      res.render("page", {
+        pageContent: pageContent,
+        linkResolver: PConfig.linkResolver
+      });
+    } else {
+      res.render("404");
+    }
+  }).catch(function(err) {
+    handleError(err, req, res);
+  });
+});
+
 app.route("/preview").get(function(req, res) {
   api(req, res).then(function(api) {
     return Prismic.preview(api, PConfig.linkResolver, req, res);

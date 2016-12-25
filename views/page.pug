@@ -1,0 +1,18 @@
+extends layout.pug
+
+block head
+  title
+    !=pageContent.getText("page.title")
+
+block body
+  div(class="text-center")
+    span(class="header")
+      !=pageContent.getText("page.title")
+
+  div(class="container")
+    for slice in pageContent.getSliceZone('page.body').slices
+            case slice.sliceType
+                when 'text'
+                    div !{slice.value.asHtml()}
+                when 'link'
+                    div !{slice.value.asHtml()}
